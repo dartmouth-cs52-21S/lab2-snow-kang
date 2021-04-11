@@ -1,0 +1,92 @@
+{
+    /* Physical touch, words of affirmation, gifts, quality time, acts of service */
+    
+    "title": "quiz title",
+    "outcomes": {
+            "outcome1": {"img": "img/outcome1.jpg", "text": "physical touch"},
+            "outcome2": {"img": "img/outcome2.jpg", "text": "words of affirmation"},
+            "outcome3": {"img": "img/outcome2.jpg", "text": "gifts"},
+            "outcome4": {"img": "img/outcome2.jpg", "text": "quality time"},
+            "outcome5": {"img": "img/outcome2.jpg", "text": "acts of service"}
+    },
+    "questions": [
+        {
+            "question_name": "Your SO/BFF goes on a business trip. What would make you feel most appreciated is them:",
+            "question_img_url": "img/question1.jpg",
+            "answers": [
+                {
+                    "text": "Bringing you a souvenir",
+                    "img_url": "img/image1.jpg",
+                    "outcome": "outcome2"
+                },
+                {
+                    "text": "Them talking to all their coworkers about you",
+                    "img_url": "img/image2.jpg",
+                    "outcome": "acts of service"
+                },
+                {
+                    "text": "",
+                    "img_url": "img/image3.jpg",
+                    "outcome": "outcome1"
+                }
+
+            ]
+        },
+        {
+            "question_name": "Your SO",
+            "question_img_url": "img/question2.jpg",
+            "answers": [
+                {
+                    "text": "",
+                    "img_url": "img/image1.jpg",
+                    "outcome": "outcome2"
+                },
+                {
+                    "text": "",
+                    "img_url": "img/image2.jpg",
+                    "outcome": "outcome2"
+                },
+                {
+                    "text": "",
+                    "img_url": "img/image3.jpg",
+                    "outcome": "outcome1"
+                }
+
+            ]
+        },
+        {
+            "question_name": "What would make your code editing experience better?",
+            "question_img_url": "img/question3.jpg",
+            "answers": [
+                {
+                    "text": "A bot that sent you positive messages after every commit",
+                    "img_url": "img/image1.jpg",
+                    "outcome": "words of affirmation"
+                },
+                {
+                    "text": "Free add ons and a prize for each completed project",
+                    "img_url": "img/image2.jpg",
+                    "outcome": "gifts"
+                },
+                {
+                    "text": "A tactile keyboard",
+                    "img_url": "img/image3.jpg",
+                    "outcome": "physical touch"
+                },
+                {
+                    "text": "Someone that fills up your coffee whenever it gets empty and brings you dinner",
+                    TODO: someone that converts from spaces/tabs to the one of your liking just for you
+                    "img_url": "img/image2.jpg",
+                    "outcome": "acts of service"
+                },
+                {
+                    "text": "A code buddy to spend all-nighters with",
+                    "img_url": "img/image2.jpg",
+                    "outcome": "quality time"
+                },
+
+
+            ]
+        },
+    ]
+}

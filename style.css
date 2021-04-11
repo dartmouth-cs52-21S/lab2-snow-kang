@@ -1,0 +1,53 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Maven Pro", sans-serif;
+  scroll-behavior: smooth;
+
+  /* How to guarantee full view width w/o scrollbar width */
+  --full-width: calc(100vw - (100vw - 100%));
+}
+
+input[type="radio"] {
+  /* display: none; */
+}
+
+input[type="radio"] + img {
+  width: 100px;
+  height: 100px;
+}
+
+/* Modal code adapted from https://www.w3schools.com/howto/howto_css_modals.asp */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0px;
+  left: 0px;
+  width: var(--full-width);
+  height: 100%;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgb(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background: whitesmoke;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.close {
+  color: gray;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.close:hover {
+  cursor: pointer;
+}
+
