@@ -9,24 +9,16 @@
   --full-width: calc(100vw - (100vw - 100%));
 }
 
+/* Each individual question */
 .question {
-  border: solid pink 4px;
-  text-align: center;
-  margin-left: calc(var(--full-width) * 0.2);
-  margin-right: calc(var(--full-width) * 0.2);
-
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.question:not(:first-child) {
+  text-align: center;
   margin-top: 30px;
-}
-
-label {
-  display: flex;
-  flex-direction: column;
+  margin-left: 15vw;
+  margin-right: 15vw;
+  border: solid pink 4px;
 }
 
 .prompt {
@@ -47,24 +39,19 @@ label {
   flex-wrap: wrap;
 }
 
+label.description {
+  display: flex;
+  flex-direction: column;
+}
+
 input[type="radio"] {
   display: none;
 }
 
 input[type="radio"] + img {
+  width: 20vw;
   max-width: 200px;
-  max-height: 200px;
-  margin: 10px;
-}
-
-
-
-.opaque {
-  opacity: 1;
-}
-
-.sheer {
-  opacity: 0.2;
+  margin: 1vw;
 }
 
 /* Modal code adapted from https://www.w3schools.com/howto/howto_css_modals.asp */
@@ -82,12 +69,14 @@ input[type="radio"] + img {
 }
 
 .modal-content {
-  background: whitesmoke;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  width: 80%;
   display: flex;
   justify-content: space-between;
+  width: 80%;
+  height: 40%;
+  margin: 30% auto; /* 15% from the top and centered */
+  padding: 30px;
+  background: whitesmoke;
+  font-size: 1.5em;
 }
 
 .close {
@@ -98,4 +87,17 @@ input[type="radio"] + img {
 
 .close:hover {
   cursor: pointer;
+}
+
+/* MOBILE VERSION */
+@media only screen and (max-width: 600px) {
+  .question {
+    margin-left: 2vw;
+    margin-right: 2vw;
+  }
+
+  input[type="radio"] + img {
+    margin: 1vw;
+    width: 30vw;
+  }
 }

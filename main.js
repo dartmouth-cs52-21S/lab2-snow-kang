@@ -1,4 +1,4 @@
-const numQuestions = 2;
+const numQuestions = document.querySelectorAll(".question").length;
 
 document.getElementById("calculate").addEventListener("click", () => {
   const choices = { touch: 0, gifts: 0, words: 0, service: 0, time: 0 };
@@ -29,10 +29,10 @@ document.getElementById("calculate").addEventListener("click", () => {
     document.querySelector(".modal p").innerHTML =
       "Please answer all questions first!";
   }
-
   document.querySelector(".modal").style.display = "block";
 });
 
+// For each question, lower the opacity of every choice except the one selected
 document
   .querySelectorAll(".choices > label > input[type='radio']")
   .forEach((input) => {
@@ -43,17 +43,20 @@ document
         .forEach((uncheckedInput) => {
           uncheckedInput.parentNode.style.opacity = "0.2";
         });
+
+      let nextQuestion = e.target.closest(".question").nextElementSibling;
+      window.scrollTo(0, nextQuestion.offsetTop)
     });
   });
 
-// When the user clicks x, close the modal 
+// When the user clicks x, close the modal
 document.querySelector(".close").addEventListener("click", () => {
   document.querySelector(".modal").style.display = "none";
-})
+});
 
-// When the user clicks anywhere outside of the modal, close it
+// When the user clicks anywhere outside of the modal-content, close the modal
 window.addEventListener("click", (e) => {
   if (e.target.classList.contains("modal")) {
     e.target.style.display = "none";
   }
-})
+});
