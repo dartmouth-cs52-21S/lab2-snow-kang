@@ -9,13 +9,62 @@
   --full-width: calc(100vw - (100vw - 100%));
 }
 
+.question {
+  border: solid pink 4px;
+  text-align: center;
+  margin-left: calc(var(--full-width) * 0.2);
+  margin-right: calc(var(--full-width) * 0.2);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.question:not(:first-child) {
+  margin-top: 30px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+}
+
+.prompt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  height: 100px;
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.choices {
+  display: flex;
+  justify-content: center;
+  flex: 0 1 auto;
+  flex-wrap: wrap;
+}
+
 input[type="radio"] {
-  /* display: none; */
+  display: none;
 }
 
 input[type="radio"] + img {
-  width: 100px;
-  height: 100px;
+  max-width: 200px;
+  max-height: 200px;
+  margin: 10px;
+}
+
+
+
+.opaque {
+  opacity: 1;
+}
+
+.sheer {
+  opacity: 0.2;
 }
 
 /* Modal code adapted from https://www.w3schools.com/howto/howto_css_modals.asp */
@@ -50,4 +99,3 @@ input[type="radio"] + img {
 .close:hover {
   cursor: pointer;
 }
-
