@@ -15,27 +15,27 @@
             "answers": [
                 {
                     "text": "Bring you back a specially-chosen souvenir that reminded them of you",
-                    "img_url": "img/image1.jpg",
+                    "img_url": "./media/coco.jpg",
                     "outcome": "gifts"
                 },
                 {
                     "text": "Promote your business and give you referrals",
-                    "img_url": "img/image2.jpg",
+                    "img_url": "./media/coco.jpg",
                     "outcome": "service"
                 },
                 {
                     "text": "Text you frequently to tell you how much they miss you",
-                    "img_url": "img/image3.jpg",
+                    "img_url": "./media/coco.jpg",
                     "outcome": "words"
                 },
                 {
                     "text": "Give you the biggest hug when they return",
-                    "img_url": "img/image3.jpg",
+                    "img_url": "./media/coco.jpg",
                     "outcome": "touch"
                 },
                 {
                     "text": "Set aside time each day to have a long, uninterrupted call with you",
-                    "img_url": "img/image3.jpg",
+                    "img_url": "./media/coco.jpg",
                     "outcome": "time"
                 }
             ]
@@ -46,32 +46,123 @@
             "answers": [
                 {
                     "text": "A bot that sent you positive messages after every commit",
-                    "img_url": "img/image1.jpg",
+                    "img_url": "./media/coco.jpg",
                     "outcome": "words"
                 },
                 {
                     "text": "Free add ons and a prize for each completed project",
-                    "img_url": "img/image2.jpg",
+                    "img_url": "./media/coco.jpg",
                     "outcome": "gifts"
                 },
                 {
-                    "text": "A tactile keyboard",
-                    "img_url": "img/image3.jpg",
+                    "text": "A mechanical keyboard",
+                    "img_url": "./media/coco.jpg",
                     "outcome": "touch"
                 },
                 {
                     "text": "Someone that writes all your unit tests for you",
-                    "img_url": "img/image2.jpg",
+                    "img_url": "./media/coco.jpg",
                     "outcome": "service"
                 },
                 {
                     "text": "A code buddy to spend all-nighters with",
-                    "img_url": "img/image2.jpg",
+                    "img_url": "./media/coco.jpg",
                     "outcome": "time"
-                },
-
-
+                }
             ]
         },
+        {
+            "question_name": "What would you consider your greatest accomplishment?",
+            "question_img_url": "img/question3.jpg",
+            "answers": [
+                {
+                    "text": "Having your boss tell you that your code impressed them",
+                    "img_url": "./media/coco.jpg",
+                    "outcome": "words"
+                },
+                {
+                    "text": "Getting your dream PC",
+                    "img_url": "./media/coco.jpg",
+                    "outcome": "gifts"
+                },
+                {
+                    "text": "Achieving 150 WPM",
+                    "img_url": "./media/coco.jpg",
+                    "outcome": "touch"
+                },
+                {
+                    "text": "Getting promoted to a position where you can delegate others to refactor your code",
+                    "img_url": "./media/coco.jpg",
+                    "outcome": "service"
+                },
+                {
+                    "text": "Landing a job that lets you spend more time with family",
+                    "img_url": "./media/coco.jpg",
+                    "outcome": "time"
+                }
+            ]
+        },
+        {
+            "question_name": "Your favorite work beverage?",
+            "question_img_url": "img/question4.jpg",
+            "answers": [
+                {
+                    "text": "Snapple, I love those messages on the bottle caps",
+                    "img_url": "./media/coco.jpg",
+                    "outcome": "words"
+                },
+                {
+                    "text": "Anything that enters me into a free give away",
+                    "img_url": "./media/coco.jpg",
+                    "outcome": "gifts"
+                },
+                {
+                    "text": "Fizzy soda",
+                    "img_url": "./media/coco.jpg",
+                    "outcome": "touch"
+                },
+                {
+                    "text": "Coffee from a barista that memorized your order",
+                    "img_url": "./media/coco.jpg",
+                    "outcome": "service"
+                },
+                {
+                    "text": "A warm cup of hot chocolate",
+                    "img_url": "./media/coco.jpg",
+                    "outcome": "time"
+                }
+            ]
+        },
+        {
+            "question_name": "What is a red flag for a roommate?",
+            "question_img_url": "img/question5.jpg",
+            "answers": [
+                {
+                    "text": "Someone who never says what’s on their mind",
+                    "img_url": "./media/coco.jpg",
+                    "outcome": "words"
+                },
+                {
+                    "text": "Someone who would never buy decor for the house",
+                    "img_url": "./media/coco.jpg",
+                    "outcome": "gifts"
+                },
+                {
+                    "text": "Someone who hates hugs",
+                    "img_url": "./media/coco.jpg",
+                    "outcome": "touch"
+                },
+                {
+                    "text": "Someone who won’t do the dishes/laundry",
+                    "img_url": "./media/coco.jpg",
+                    "outcome": "service"
+                },
+                {
+                    "text": "Someone who’s never home",
+                    "img_url": "./media/coco.jpg",
+                    "outcome": "time"
+                }
+            ]
+        }
     ]
 }
