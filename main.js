@@ -1,15 +1,18 @@
+// TODO HEADER IMAGE and text for each question
+// Make even questions have answers with images
+// Modal with background image
+
 // Read in local JSON file
 const url = "./data.json";
 
 fetch(url)
   .then((response) => response.json())
   .then((json) => {
-    console.log(json);
     document.querySelector("h1").innerHTML = json.title;
     json.questions.forEach((question, idx) => {
       let newQuestion = document.createElement("div");
       newQuestion.className = "question";
-      let newPrompt = document.createElement("span");
+      let newPrompt = document.createElement("p");
       newPrompt.className = "prompt";
       newPrompt.innerHTML = question.question_name;
       newQuestion.appendChild(newPrompt);
@@ -28,14 +31,17 @@ fetch(url)
         newInput.type = "radio";
         newInput.name = `question${idx}`;
         newInput.value = choice.outcome;
-        let newImg = document.createElement("img");
-        newImg.src = choice.img_url;
-        let newSpan = document.createElement("span");
-        newSpan.innerHTML = choice.text;
+       
+        let newP = document.createElement("p");
+        newP.innerHTML = choice.text;
 
         newChoice.appendChild(newInput);
-        newChoice.appendChild(newImg);
-        newChoice.appendChild(newSpan);
+        if (choice.image_url) {
+          let newImg = document.createElement("img");
+          newImg.src = choice.image_url;
+          newChoice.appendChild(newImg);
+        }
+        newChoice.appendChild(newP);
 
         newChoices.appendChild(newChoice);
       });
@@ -74,6 +80,10 @@ function calculate(numQuestions) {
       document.querySelector(
         ".modal p"
       ).innerHTML = `Your love language is ${chosen}!`;
+
+      document.querySelector(
+        ".modal"
+      ).style.backgroundImage = "url('media/roses.gif')";
     } else {
       document.querySelector(".modal p").innerHTML =
         "Please answer all questions first!";
@@ -92,7 +102,7 @@ function setOpacity() {
         e.target.parentNode.parentNode
           .querySelectorAll("input:not(:checked)")
           .forEach((uncheckedInput) => {
-            uncheckedInput.parentNode.style.opacity = "0.2";
+            uncheckedInput.parentNode.style.opacity = "0.5";
           });
 
         let nextQuestion = e.target.closest(".question").nextElementSibling;
