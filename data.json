@@ -1,26 +1,35 @@
 {
     "title_img": "media/logo.png",
-    "btn_txt": "let's get started...",
     "outcomes": {
         "touch": {
             "img": "media/touch.jpg",
-            "text": "physical touch"
+            "text": "physical touch",
+            "advice": "https://www.blinkist.com/magazine/posts/love-language-physical-touch",
+            "credit": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fmedium.com%2F%40pgstaehelin%2Fhugging-72d787e125ae&psig=AOvVaw1K11Peb-3XTGfeoXe5FS4K&ust=1618550187384000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOCE3rm__-8CFQAAAAAdAAAAABAI"
         },
         "words": {
             "img": "media/words.jpg",
-            "text": "words of affirmation"
+            "text": "words of affirmation",
+            "advice": "https://verilymag.com/2015/08/five-love-languages-dr-gary-chapman-words-of-affirmation-marriage-preparation-romance-relationships",
+            "credit": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F348747564873305235%2F&psig=AOvVaw2pH50yXq1wN1MY0EG7BCQn&ust=1618549811436000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLDVl4e-_-8CFQAAAAAdAAAAABA4"
         },
         "gifts": {
             "img": "media/gifts.jpg",
-            "text": "gifts"
+            "text": "gifts",
+            "advice": "https://psiloveyou.xyz/got-a-partner-whose-love-language-is-gift-giving-here-are-5-truths-they-want-you-to-know-ea30806dcb46",
+            "credit": "https://www.google.com/url?sa=i&url=https%3A%2F%2Far.pinterest.com%2Fpin%2F343821752785189245%2F&psig=AOvVaw2kM2lnnz6FdG7uKIKkFdok&ust=1618549608895000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJj32Km9_-8CFQAAAAAdAAAAABAV"
         },
         "time": {
             "img": "media/time.jpg",
-            "text": "quality time"
+            "text": "quality time",
+            "advice": "https://www.verywellmind.com/quality-time-love-language-4783540",
+            "credit": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.secrettelaviv.com%2Ftickets%2Fwild-animals-miami-beach-party&psig=AOvVaw1RBjI4Epgn7z7-OhydzRHK&ust=1618549539457000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJi0hIe9_-8CFQAAAAAdAAAAABAD"
         },
         "service": {
             "img": "media/service.jpg",
-            "text": "acts of service"
+            "text": "acts of service",
+            "advice": "https://www.bustle.com/p/7-tips-for-showing-you-care-if-your-partners-love-language-is-acts-of-service-8266666",
+            "credit": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fbestlifeonline.com%2Fanimal-friendships%2F&psig=AOvVaw23ZKfAEBxiwFow6lWU13zN&ust=1618549319528000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOCRlqG8_-8CFQAAAAAdAAAAABAJ"
         }
     },
     "questions": [
@@ -110,7 +119,7 @@
             ]
         },
         {
-            "question_name": "This is a wordy quiz... I want a drink before I finish it...",
+            "question_name": "This is a wordy quiz... I want a drink before I go on...",
             "answers": [
                 {
                     "outcome": "words",

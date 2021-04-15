@@ -1,18 +1,12 @@
-// Read in local JSON file
 const url = "./data.json";
+let numQuestions;
 
-/* The Fisher-Yates Algorithm to shuffle an array
-  Iterates backwards starting from the last element of the array.
-  Swaps the current "old" element with a random other "earlier" element.
-  Code written myself referencing the algorithm from Wikipedia 
-*/
-function shuffle(arr) {
-  for (let i = arr.length - 1; i > 0; i--) {
-    let earlierIdx = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[earlierIdx]] = [arr[earlierIdx], arr[i]];
-  }
-  return arr;
-}
+// Variables used for typewriting effect
+let typedText;
+let typedIdx;
+
+// Keeps track of which questions have been answered
+const answered = new Set();
 
 fetch(url)
   .then((response) => response.json())
@@ -55,9 +49,21 @@ fetch(url)
         .insertAdjacentHTML("beforeend", containerHTML);
     });
     setOpacity();
-    const numQuestions = document.querySelectorAll(".question").length;
+    numQuestions = document.querySelectorAll(".question").length;
     calculate(numQuestions, json.outcomes);
   });
+
+// When the user clicks x, close the modal
+document.querySelector(".close").addEventListener("click", () => {
+  document.querySelector(".modal").style.display = "none";
+});
+
+// When the user clicks anywhere outside of the modal-content, close the modal
+window.addEventListener("click", (e) => {
+  if (e.target.classList.contains("modal")) {
+    e.target.style.display = "none";
+  }
+});
 
 // Displays modal result after determining most frequent answer
 function calculate(numQuestions, outcomes) {
@@ -70,7 +76,7 @@ function calculate(numQuestions, outcomes) {
     let highestFrequency = 0;
     let chosen;
 
-    // Populates a dictionary with choice: frequency pairs
+    // Determines which outcome the user chooses most frequently
     document
       .querySelectorAll(".choices > label > input[type='radio']:checked")
       .forEach((checked) => {
@@ -86,24 +92,20 @@ function calculate(numQuestions, outcomes) {
       });
 
     // Displays modal with text dependent on whether all questions have been answered
-    if (
-      document.querySelectorAll(
-        ".choices > label > input[type='radio']:checked"
-      ).length == numQuestions
-    ) {
-      document.querySelector(
-        ".modal p"
-      ).innerHTML = `Your love language is ${outcomes[chosen]["text"]}!`;
-
-      document.querySelector(
-        ".modal-content"
-      ).style.backgroundImage = `url(${outcomes[chosen]["img"]})`;
-      
+    const modalTxt = document.querySelector(".modal-text");
+    if (answered.size == numQuestions) {
+      modalTxt.innerHTML = `<img src=${outcomes[chosen]["img"]}>
+      <p>Send the following link to your closest friends & loved ones:</p>
+      <a href="${outcomes[chosen]["advice"]}">What you need...</a>`;
+      typedText = ["Your love language is", outcomes[chosen]["text"]];
+      typedIdx = 0;
+      typeWriter();
       document.querySelector(".modal").style.backgroundImage =
         "url('media/roses.gif')";
     } else {
-      document.querySelector(".modal p").innerHTML =
-        "Please answer all questions first!";
+      scrollToPlace();
+      modalTxt.innerHTML = `<h2>Calculations are still incomplete...</h2>
+      <p>Please answer all questions first! I scrolled you to the earliest question you missed.</p>`;
     }
     document.querySelector(".modal").style.display = "block";
   });
@@ -115,35 +117,81 @@ function setOpacity() {
     .querySelectorAll(".choices > label > input[type='radio']")
     .forEach((input) => {
       input.addEventListener("change", (e) => {
+        // Record which question number was just answered
+        answered.add(parseInt(input.name.split("question")[1]));
+
         e.target.parentNode.classList.remove("unselected");
         e.target.parentNode.classList.add("selected");
         e.target.parentNode.parentNode
           .querySelectorAll("input:not(:checked)")
           .forEach((uncheckedInput) => {
-            if (uncheckedInput !== e.target) {
-              uncheckedInput.parentNode.classList.remove("selected");
-              uncheckedInput.parentNode.classList.add("unselected");
-            }
+            uncheckedInput.parentNode.classList.remove("selected");
+            uncheckedInput.parentNode.classList.add("unselected");
           });
 
-        let nextQuestion = e.target.closest(".question").nextElementSibling;
-        if (nextQuestion) {
-          window.scrollTo(0, nextQuestion.offsetTop);
-        } else {
-          window.scrollTo(0, document.getElementById("calculate").offsetTop);
-        }
+        scrollToPlace();
       });
     });
 }
 
-// When the user clicks x, close the modal
-document.querySelector(".close").addEventListener("click", () => {
-  document.querySelector(".modal").style.display = "none";
-});
-
-// When the user clicks anywhere outside of the modal-content, close the modal
-window.addEventListener("click", (e) => {
-  if (e.target.classList.contains("modal")) {
-    e.target.style.display = "none";
+// Scrolls user to the earliest question that must still be completed
+function scrollToPlace() {
+  for (let i = 0; i < numQuestions; i++) {
+    if (!answered.has(i)) {
+      nextQuestion = document.querySelector(
+        `.question:nth-child(${i + 1})`
+      );
+      break;
+    }
   }
-});
+  if (nextQuestion) {
+    window.scrollTo(0, nextQuestion.offsetTop);
+  } else {
+    window.scrollTo(0, document.getElementById("calculate").offsetTop);
+  }
+}
+
+/* The Fisher-Yates Algorithm to shuffle an array
+  Iterates backwards starting from the last element of the array
+  Swaps the current "old" element with a random other "earlier" element
+  Code written myself referencing the algorithm from Wikipedia
+*/
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    let earlierIdx = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[earlierIdx]] = [arr[earlierIdx], arr[i]];
+  }
+  return arr;
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+// TypeWriting Effect: Followed tutorial from https://www.w3schools.com/howto/howto_js_typewriter.asp
+async function typeWriter() {
+  const speed = 100;
+
+  if (typedIdx < typedText[0].length) {
+    if (typedIdx == 0) {
+      document
+        .querySelector(".modal-text img")
+        .insertAdjacentHTML("beforebegin", "<h3></h3><h2></h2>");
+    }
+    let currentChar = typedText[0].charAt(typedIdx);
+    document.querySelector(".modal-text h3").innerHTML += currentChar;
+    typedIdx++;
+    setTimeout(typeWriter, speed);
+  } else if (typedIdx == typedText[0].length) {
+    for (let i = 0; i < 3; i++) {
+      document.querySelector(".modal-text h3").innerHTML += ".";
+      await sleep(500);
+    }
+    await sleep(1000);
+    document.querySelector(
+      ".modal-text h2"
+    ).innerHTML = `${typedText[1].toUpperCase()}`;
+    document.querySelector(".modal-text h2").style.animation = "fade-in 5s";
+    typedIdx++;
+  }
+}

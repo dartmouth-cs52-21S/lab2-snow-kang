@@ -2,7 +2,8 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  font-family: "Maven Pro", sans-serif;
+  font-family: "Fira Sans", Sans-Serif;
+  font-size: 1rem;
   scroll-behavior: smooth;
   text-align: center;
 
@@ -58,7 +59,7 @@ label.card.unselected {
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 30vw;
+  background-size: 35vw;
 }
 
 .white-shadow-text {
@@ -85,8 +86,10 @@ label.card.unselected {
   background-position: center;
   animation: scroll-right 70s linear infinite;
   height: 150px;
-  font-size: 1.5rem;
   font-weight: bold;
+  font-style: italic;
+  font-family: "Cormorant Garamond", Serif;
+  font-size: 4rem;
 }
 
 /* Choices container that holds every label.card */
@@ -94,6 +97,7 @@ label.card.unselected {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin: 20px;
   margin-left: 10vw;
   margin-right: 10vw;
 }
@@ -107,16 +111,15 @@ label.card {
 }
 
 label.card p {
-  padding: 5px;
   width: 100%;
-  font-weight: bold;
+  font-size: 1.3em;
   transition: transform 0.2s ease-in-out, opacity 0s;
 }
 
 label.card img {
   margin: 10px;
   max-width: 90%;
-  max-height: 70%;
+  max-height: 60%;
   width: auto;
   height: auto;
 }
@@ -126,7 +129,7 @@ label.card img {
   flex-direction: column;
 }
 
-.question:nth-child(odd) label.card p {
+.question:nth-child(odd) label.card {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -165,6 +168,7 @@ label.card img {
   height: 300px;
   margin: 10px;
   align-items: center;
+  border-radius: 1em;
 }
 
 label.card:nth-child(1) {
@@ -221,47 +225,80 @@ label.card:nth-child(5) {
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
   top: 0px;
   left: 0px;
   width: var(--full-width);
-  height: 100%;
-  overflow: hidden;
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgb(0, 0, 0, 0.4); /* Black w/ opacity */
+  height: 100vh;
+  overflow: auto;
+  background-color: rgb(0, 0, 0); 
+  background-color: rgb(0, 0, 0, 0.4); 
 }
 
 .modal-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 80%;
-  height: 40%;
-  margin: auto;
-  padding: 30px;
-  background: whitesmoke;
-  font-size: 1.5rem;
-
-  background-position: center;
-  background-size: contain;
-  
+  position: relative;
+  border-radius: 1rem;
+  background: rgb(255, 230, 234);
+  font-size: 1.5rem; 
+  margin: 5% auto; 
+  padding: 20px;
+  width: 80%; 
 }
 
-.modal-content p {
-  background: pink;
+.modal-text {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.result {
+  height: 200px;
+  width: 200px;
+}
+
+.modal-text h2 {
+  min-height: 1.5em;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3em;
+}
+
+.modal-text h3 {
+  font-size: 1.2em;
+  width: 60%;
+  text-align: left;
+}
+
+.modal-text p {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 1em;
+}
+
+.modal-text a {
+  background-image: var(--rainbow-gradient);
+  animation: scroll-right 70s linear infinite;
+  font-size: 1.5em;
+  color: black;
+  text-transform: uppercase;
+  width: 60%;
+  border-radius: 1em;
+}
+
+.modal-text img {
+  max-width: 40vw;
+  max-height: 40vh;
+  padding: 10px;
+  object-fit: cover;
 }
 
 .close {
   position: absolute;
-  top: 5vh;
+  top: 2vh;
   right: 5vw;
   color: gray;
-  font-size: 1rem;
+  font-size: 3rem;
   height: 1rem;
   font-weight: bold;
 }
@@ -276,9 +313,18 @@ label.card:nth-child(5) {
   }
 }
 
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @media (hover: hover) and (pointer: fine) {
   label.card:hover,
-  #calculate:hover {
+  #calculate:hover, a:hover {
     transform: scale(1.1);
     background-image: var(--rainbow-gradient);
     animation: scroll-right 30s linear infinite;
@@ -299,7 +345,18 @@ label.card:nth-child(5) {
 
   .prompt {
     height: 80px;
-    font-size: 1.2em;
+    font-size: 2em;
+  }
+
+  label.card p {
+    font-size: 1em;
+  }
+
+  label.card img {
+    max-width: 90%;
+    max-height: 60%;
+    width: auto;
+    height: auto;
   }
 
   .question:nth-child(even) label.card {
@@ -308,13 +365,6 @@ label.card:nth-child(5) {
     margin: 5px;
     align-items: center;
   }
-
-  label.card img {
-    max-width: 90%;
-    max-height: 60%;
-    width: auto;
-    height: auto;
-}
 
   .question:nth-child(even) label.card p {
     display: flex;
@@ -325,5 +375,29 @@ label.card:nth-child(5) {
     margin-bottom: 1em;
     height: 40%;
     width: 100%;
+  }
+
+  .modal-content {
+    margin: 20% auto;
+  }
+
+  .modal-text h2 {
+    min-height: 2.5em;
+    font-size: 2.5em;
+  }
+  
+  .modal-text h3 {
+    font-size: 1em;
+    text-align: center;
+  }
+  
+  .modal-text a {
+    font-size: 1.5em;
+    width: 80%;
+  }
+  
+  .modal-text img {
+    max-width: 60vw;
+    max-height: 60vh;
   }
 }
