@@ -1,159 +1,165 @@
 {
-    "title": "TBD",
+    "title_img": "media/logo.png",
+    "btn_txt": "let's get started...",
     "outcomes": {
         "touch": {
-            "img": "img/outcome1.jpg",
+            "img": "media/touch.jpg",
             "text": "physical touch"
         },
         "words": {
-            "img": "img/outcome2.jpg",
+            "img": "media/words.jpg",
             "text": "words of affirmation"
         },
         "gifts": {
-            "img": "img/outcome2.jpg",
+            "img": "media/gifts.jpg",
             "text": "gifts"
         },
         "time": {
-            "img": "img/outcome2.jpg",
+            "img": "media/time.jpg",
             "text": "quality time"
         },
         "service": {
-            "img": "img/outcome2.jpg",
+            "img": "media/service.jpg",
             "text": "acts of service"
         }
     },
     "questions": [
         {
-            "question_name": "Your SO/BFF goes on a business trip. What could they do to make you feel loved/appreciated?",
-            "question_img_url": "img/question1.jpg",
+            "question_name": "I want a friend who...",
             "answers": [
                 {
-                    "text": "Bring you back a specially-chosen souvenir that reminded them of you",
+                    "text": "Is thoughtful and remembers the things I like",
                     "outcome": "gifts"
                 },
                 {
-                    "text": "Promote your business and give you referrals",
+                    "text": "Talks positively about me to others even when I'm not around",
                     "outcome": "service"
                 },
                 {
-                    "text": "Text you frequently to tell you how much they miss you",
+                    "text": "Is my biggest hype(wo)man",
                     "outcome": "words"
                 },
                 {
-                    "text": "Give you the biggest hug when they return",
+                    "text": "Will offer their shoulder to cry on when things are hard",
                     "outcome": "touch"
                 },
                 {
-                    "text": "Set aside time each day to have a long, uninterrupted call with you",
+                    "text": "I will have the best memories with",
                     "outcome": "time"
                 }
             ]
         },
         {
-            "question_name": "What would make your code editing experience better?",
-            "question_img_url": "img/question2.jpg",
+            "question_name": "I want a magical tech gadget that...",
             "answers": [
                 {
-                    "text": "A bot that sent you positive messages after every commit",
+                    "text": "Showers me with motivational messages after every git commit",
                     "outcome": "words",
-                    "image_url": "media/coco.jpg"
+                    "image_url": "media/computer.jpg",
+                    "credit": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.walpaperlist.com%2F2020%2F01%2Fkawaii-pink-aesthetic-cute-wallpapers.html&psig=AOvVaw0Z_KUSlkeLb1QW0hwu3wnF&ust=1618540181741000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLC0vJea_-8CFQAAAAAdAAAAABBz"
                 },
                 {
-                    "text": "Free add ons and a prize for each completed project",
+                    "text": "Grants me free lifetime subscriptions to every learning platform",
                     "outcome": "gifts",
-                    "image_url": "media/coco.jpg"
+                    "image_url": "media/subscription.png",
+                    "credit": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fmedium.com%2Fjavarevisited%2Fcodecademy-or-pluralsight-which-is-a-better-platform-to-learn-coding-skills-59251a080642&psig=AOvVaw0pY9zZEEukaACIvELeNPy-&ust=1618537131325000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMC59buP_-8CFQAAAAAdAAAAABAD"
                 },
                 {
-                    "text": "A mechanical keyboard",
+                    "text": "Cures any coding hand/back/neck aches",
                     "outcome": "touch",
-                    "image_url": "media/coco.jpg"
+                    "image_url": "media/stretch.jpg",
+                    "credit": "https://unsplash.com/photos/smaS_Uxg4L0"
                 },
                 {
-                    "text": "Someone that writes all your unit tests for you",
+                    "text": "Does every project's refactoring/unit-testing for me",
                     "outcome": "service",
-                    "image_url": "media/coco.jpg"
+                    "image_url": "media/testing.png",
+                    "credit": "https://www.google.com/url?sa=i&url=https%3A%2F%2Ficonarchive.com%2Fshow%2Fflatastic-9-icons-by-custom-icon-design%2FUnit-completed-icon.html&psig=AOvVaw205FT1gP0aGovdz1Ry2uQf&ust=1618538941731000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLjEn86V_-8CFQAAAAAdAAAAABAD"
                 },
                 {
-                    "text": "A code buddy to spend all-nighters with",
+                    "text": "Instantly transports me to my friend's house when we need to pull an all-nighter together",
                     "outcome": "time",
-                    "image_url": "media/coco.jpg"
+                    "image_url": "media/study.jpg",
+                    "credit": "https://unsplash.com/photos/omeaHbEFlN4"
                 }
             ]
         },
         {
-            "question_name": "What would you consider your greatest accomplishment?",
-            "question_img_url": "img/question3.jpg",
+            "question_name": "I want to achieve...",
             "answers": [
                 {
-                    "text": "Having your boss tell you that your code impressed them",
+                    "text": "Fame and worldwide recognition",
                     "outcome": "words"
                 },
                 {
-                    "text": "Getting your dream PC",
+                    "text": "Fortune so I can buy myself and my loved ones everything we could ever want",
                     "outcome": "gifts"
                 },
                 {
-                    "text": "Achieving 150 WPM",
+                    "text": "Perfect health and fitness",
                     "outcome": "touch"
                 },
                 {
-                    "text": "Getting promoted to a position where you can delegate others to refactor your code",
+                    "text": "Making an impact on someone's life",
                     "outcome": "service"
                 },
                 {
-                    "text": "Landing a job that lets you spend more time with family",
+                    "text": "Becoming the leading expert at what I do",
                     "outcome": "time"
                 }
             ]
         },
         {
-            "question_name": "Your favorite work beverage?",
-            "question_img_url": "img/question4.jpg",
+            "question_name": "This is a wordy quiz... I want a drink before I finish it...",
             "answers": [
                 {
-                    "text": "Snapple, I love those messages on the bottle caps",
-                    "outcome": "words"
+                    "outcome": "words",
+                    "image_url": "media/coffee.jpg",
+                    "credit": "https://unsplash.com/photos/EAay7Aj4jbc"
                 },
                 {
-                    "text": "Anything that enters me into a free give away",
-                    "outcome": "gifts"
+                    "outcome": "gifts",
+                    "image_url": "media/budlight.png",
+                    "credit": "https://www.google.com/url?sa=i&url=http%3A%2F%2Fthorpedistributing.com%2Fbud-light%2Fstrike-gold-bud-light-chance-win-super-bowl-tickets-life%2F&psig=AOvVaw15tZdJ_MMYuc41xeBg5c3e&ust=1618538726054000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNiZz-WU_-8CFQAAAAAdAAAAABAN"
                 },
                 {
-                    "text": "Fizzy soda",
-                    "outcome": "touch"
+                    "outcome": "touch",
+                    "image_url": "media/izze.jpg",
+                    "credit": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FSparkling-Juice-Flavor-Sunset-Variety%2Fdp%2FB07FNCXSTL&psig=AOvVaw2vz9Z4YHwY4Ry8xClhfrvC&ust=1618538593122000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIiSyKGU_-8CFQAAAAAdAAAAABAD"
                 },
                 {
-                    "text": "Coffee from a barista that memorized your order",
-                    "outcome": "service"
+                    "outcome": "service",
+                    "image_url": "media/hotcocoa.jpg",
+                    "credit": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.halfbakedharvest.com%2Fcreamy-coconut-hot-chocolate%2F&psig=AOvVaw3eC3ER3EGQX9IDF-qghDUn&ust=1618538555036000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCICLmpGU_-8CFQAAAAAdAAAAABAD"
                 },
                 {
-                    "text": "A warm cup of hot chocolate",
-                    "outcome": "time"
+                    "outcome": "time",
+                    "image_url": "media/wine.jpg",
+                    "credit": "https://unsplash.com/photos/6ciLddToTgM"
                 }
             ]
         },
         {
-            "question_name": "What is a red flag for a roommate?",
-            "question_img_url": "img/question5.jpg",
+            "question_name": "I do NOT want a roommate who...",
             "answers": [
                 {
-                    "text": "Someone who never says what’s on their mind",
+                    "text": "Lets issues pile up before unloading them all at once",
                     "outcome": "words"
                 },
                 {
-                    "text": "Someone who would never buy decor for the house",
+                    "text": "Forgets all the biggest occasions",
                     "outcome": "gifts"
                 },
                 {
-                    "text": "Someone who hates hugs",
+                    "text": "Hates hugs... name a bigger red flag",
                     "outcome": "touch"
                 },
                 {
-                    "text": "Someone who won’t do the dishes/laundry",
+                    "text": "Relies on me to do all the chores",
                     "outcome": "service"
                 },
                 {
-                    "text": "Someone who’s never home",
+                    "text": "is never home and always comes home late",
                     "outcome": "time"
                 }
             ]

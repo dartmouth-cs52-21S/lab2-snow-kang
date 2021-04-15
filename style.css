@@ -8,18 +8,65 @@
 
   /* How to guarantee full view width w/o scrollbar width */
   --full-width: calc(100vw - (100vw - 100%));
+  --rainbow-gradient: linear-gradient(
+    to right,
+    #ff6663,
+    #feb144,
+    #ffde53,
+    #9ee09e,
+    #9ec1cf,
+    #cc99c9,
+    #9ec1cf,
+    #9ee09e,
+    #ffde53,
+    #feb144,
+    #ff6663
+  );
+}
+
+/* Hide all radio buttons */
+input[type="radio"] {
+  display: none;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: rgb(255, 230, 234);
 }
 
 h1 {
-  text-align: center;
-  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
-/* Each individual question */
+label.card.selected {
+  opacity: 1;
+  border: dotted white 5px;
+  background-image: var(--rainbow-gradient);
+}
+
+label.card.unselected {
+  opacity: 0.5;
+}
+
+.parallax {
+  height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 30vw;
+}
+
+.white-shadow-text {
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+/* Question container that holds prompt + choices */
 .question {
   position: relative;
   display: flex;
@@ -27,8 +74,6 @@ h1 {
   justify-content: center;
   text-align: center;
   margin-top: 30px;
-  margin-left: 7vw;
-  margin-right: 7vw;
 }
 
 .prompt {
@@ -40,32 +85,48 @@ h1 {
   background-position: center;
   animation: scroll-right 70s linear infinite;
   height: 150px;
-  color: white;
-  text-shadow: 2px 2px 4px #000000;
   font-size: 1.5rem;
   font-weight: bold;
 }
 
-@keyframes scroll-right {
-  100%{
-    background-position: -3000px 0px;
-  }
-}
-
-label.description {
+/* Choices container that holds every label.card */
+.choices {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-left: 10vw;
+  margin-right: 10vw;
 }
 
-.question:nth-child(odd) > .choices {
+/* Each label.card holds text and/or an image */
+label.card {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  flex: 0 1 auto;
-  flex-wrap: wrap;
+  background-image: none;
 }
 
-.question:nth-child(odd) label.description p {
+label.card p {
+  padding: 5px;
+  width: 100%;
+  font-weight: bold;
+  transition: transform 0.2s ease-in-out, opacity 0s;
+}
+
+label.card img {
+  margin: 10px;
+  max-width: 90%;
+  max-height: 70%;
+  width: auto;
+  height: auto;
+}
+
+/* Odd questions have label.cards with only text & are vertically oriented */
+.question:nth-child(odd) > .choices {
+  flex-direction: column;
+}
+
+.question:nth-child(odd) label.card p {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -73,79 +134,87 @@ label.description {
   margin-top: 10px;
 }
 
-.question:nth-child(even) > .choices {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.question:nth-child(even) label.description {
-  width: 35vw;
-  margin: 5px;
-  align-items: center;
-}
-
-label.description:nth-child(1) p {
-  background-color: #FEB144;
-}
-
-.question:nth-child(odd) label.description:nth-child(1) p {
+/* Round the edges of the first and last text cards */
+.question:nth-child(odd) label.card:nth-child(1) {
   border-top-right-radius: 1rem;
   border-top-left-radius: 1rem;
 }
 
-label.description:nth-child(2) p {
-  background-color: #ffde53;
-}
-
-label.description:nth-child(3) p {
-  background-color: #9EE09E;
-}
-
-label.description:nth-child(4) p {
-  background-color: #9EC1CF;
-}
-
-label.description:nth-child(5) p {
-  background-color: #CC99C9;
-}
-
-.question:nth-child(odd) label.description:nth-child(5) p {
+.question:nth-child(odd) label.card:nth-child(5) {
   border-bottom-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
 }
 
-label.description img {
+/* Even questions have label.cards with text + images */
+.question:nth-child(even) > .choices {
+  flex-direction: row;
+}
+
+.question:nth-child(even) label.card p {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 1em;
+  height: 80%;
   width: 100%;
-  height: 100%;
-  max-width: 200px;
 }
 
-label.description p {
-  padding: 5px;
-  width: 100%;
-  color: white;
-  text-shadow: 2px 2px 4px #000000;
-  font-weight: bold;
-  transition: transform 0.2s ease-in-out, opacity 0s;
+.question:nth-child(even) label.card {
+  width: 20vw;
+  height: 300px;
+  margin: 10px;
+  align-items: center;
 }
 
-.question:nth-child(even) label.description p {
-  height: 100%;
+label.card:nth-child(1) {
+  background-color: #feb144;
 }
 
-input[type="radio"] {
-  display: none;
+label.card:nth-child(2) {
+  background-color: #ffde53;
+}
+
+label.card:nth-child(3) {
+  background-color: #9ee09e;
+}
+
+label.card:nth-child(4) {
+  background-color: #9ec1cf;
+}
+
+label.card:nth-child(5) {
+  background-color: #cc99c9;
 }
 
 #calculate {
-  height: 50px;
-  width: 100px;
-  margin: 15px;
-  background-image: linear-gradient(to right, #FF6663, #FEB144, #ffde53, #9EE09E, #9EC1CF, #CC99C9);
+  height: 100px;
+  width: 200px;
+  margin: 20px;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+}
+
+.rainbow-border {
+  background-image: var(--rainbow-gradient);
+  border: none;
   animation: scroll-right 70s linear infinite;
   transition: all 0.2s ease;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rainbow-border:after {
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: attr(alt);
+  width: 90%;
+  height: 90%;
+  background-color: pink;
 }
 
 /* Modal code adapted from https://www.w3schools.com/howto/howto_css_modals.asp */
@@ -157,25 +226,43 @@ input[type="radio"] {
   left: 0px;
   width: var(--full-width);
   height: 100%;
-  overflow: auto; /* Enable scroll if needed */
+  overflow: hidden;
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgb(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 .modal-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   width: 80%;
   height: 40%;
-  margin: 30% auto; /* 15% from the top and centered */
+  margin: auto;
   padding: 30px;
   background: whitesmoke;
   font-size: 1.5rem;
+
+  background-position: center;
+  background-size: contain;
+  
+}
+
+.modal-content p {
+  background: pink;
 }
 
 .close {
+  position: absolute;
+  top: 5vh;
+  right: 5vw;
   color: gray;
-  font-size: 1em;
+  font-size: 1rem;
+  height: 1rem;
   font-weight: bold;
 }
 
@@ -183,18 +270,60 @@ input[type="radio"] {
   cursor: pointer;
 }
 
+@keyframes scroll-right {
+  100% {
+    background-position: -3000px 0px;
+  }
+}
+
 @media (hover: hover) and (pointer: fine) {
-  label.description:hover, #calculate:hover {
+  label.card:hover,
+  #calculate:hover {
     transform: scale(1.1);
-    opacity: 1;
+    background-image: var(--rainbow-gradient);
+    animation: scroll-right 30s linear infinite;
     cursor: pointer;
   }
 }
 
 /* MOBILE VERSION */
-@media only screen and (max-width: 600px) {
-  /* .question {
+@media only screen and (max-width: 800px) {
+  .parallax {
+    background-size: 80vw;
+  }
+
+  .choices {
     margin-left: 2vw;
     margin-right: 2vw;
-  } */
+  }
+
+  .prompt {
+    height: 80px;
+    font-size: 1.2em;
+  }
+
+  .question:nth-child(even) label.card {
+    width: 45vw;
+    height: 220px;
+    margin: 5px;
+    align-items: center;
+  }
+
+  label.card img {
+    max-width: 90%;
+    max-height: 60%;
+    width: auto;
+    height: auto;
+}
+
+  .question:nth-child(even) label.card p {
+    display: flex;
+    padding: 0;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+    height: 40%;
+    width: 100%;
+  }
 }

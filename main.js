@@ -1,73 +1,87 @@
-// TODO HEADER IMAGE and text for each question
-// Make even questions have answers with images
-// Modal with background image
-
 // Read in local JSON file
 const url = "./data.json";
+
+/* The Fisher-Yates Algorithm to shuffle an array
+  Iterates backwards starting from the last element of the array.
+  Swaps the current "old" element with a random other "earlier" element.
+  Code written myself referencing the algorithm from Wikipedia 
+*/
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    let earlierIdx = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[earlierIdx]] = [arr[earlierIdx], arr[i]];
+  }
+  return arr;
+}
 
 fetch(url)
   .then((response) => response.json())
   .then((json) => {
-    document.querySelector("h1").innerHTML = json.title;
+    document.querySelector(
+      "h1"
+    ).style.backgroundImage = `url(${json.title_img})`;
+
     json.questions.forEach((question, idx) => {
-      let newQuestion = document.createElement("div");
-      newQuestion.className = "question";
-      let newPrompt = document.createElement("p");
-      newPrompt.className = "prompt";
-      newPrompt.innerHTML = question.question_name;
-      newQuestion.appendChild(newPrompt);
+      let choicesHTML = "";
+      let choices = shuffle(question.answers);
 
-      document.querySelector(".container").appendChild(newQuestion);
-
-      let newChoices = document.createElement("div");
-      newChoices.className = "choices";
-
-      newQuestion.appendChild(newChoices);
-
-      question.answers.forEach((choice) => {
-        let newChoice = document.createElement("label");
-        newChoice.className = "description";
-        let newInput = document.createElement("input");
-        newInput.type = "radio";
-        newInput.name = `question${idx}`;
-        newInput.value = choice.outcome;
-       
-        let newP = document.createElement("p");
-        newP.innerHTML = choice.text;
-
-        newChoice.appendChild(newInput);
+      choices.forEach((choice) => {
+        let imgHTML = "";
         if (choice.image_url) {
-          let newImg = document.createElement("img");
-          newImg.src = choice.image_url;
-          newChoice.appendChild(newImg);
+          imgHTML = `<img src=${choice.image_url}></img>`;
         }
-        newChoice.appendChild(newP);
 
-        newChoices.appendChild(newChoice);
+        let txtHTML = "";
+        if (choice.text) {
+          txtHTML = `<p class="white-shadow-text">${choice.text}</p>`;
+        }
+
+        choicesHTML += `<label class="card">
+          <input type="radio" name="question${idx}" value=${choice.outcome}>
+          ${imgHTML}
+          ${txtHTML}
+        </label>`;
       });
+
+      let containerHTML = `<div class="question">
+        <p class="prompt white-shadow-text">${question.question_name}</p>
+        <div class="choices">
+          ${choicesHTML}
+        </div>
+      </div>`;
+
+      document
+        .querySelector(".container")
+        .insertAdjacentHTML("beforeend", containerHTML);
     });
     setOpacity();
     const numQuestions = document.querySelectorAll(".question").length;
-    calculate(numQuestions);
+    calculate(numQuestions, json.outcomes);
   });
 
-
 // Displays modal result after determining most frequent answer
-function calculate(numQuestions) {
+function calculate(numQuestions, outcomes) {
   document.getElementById("calculate").addEventListener("click", () => {
-    const choices = { touch: 0, gifts: 0, words: 0, service: 0, time: 0 };
+    let outcomesDict = outcomes;
+    for (let key in outcomesDict) {
+      outcomesDict[key]["count"] = 0;
+    }
+
     let highestFrequency = 0;
     let chosen;
 
     // Populates a dictionary with choice: frequency pairs
-    // TODO: account for when two choices have the same frequency (randomly choose one?)
     document
       .querySelectorAll(".choices > label > input[type='radio']:checked")
       .forEach((checked) => {
-        choices[checked.value] += 1;
-        if (choices[checked.value] > highestFrequency) {
-          highestFrequency = choices[checked.value];
+        outcomesDict[checked.value]["count"] += 1;
+        if (outcomesDict[checked.value]["count"] > highestFrequency) {
+          highestFrequency = outcomesDict[checked.value]["count"];
           chosen = checked.value;
+        } // When two choices have the same frequency, we randomly choose one
+        else if (outcomesDict[checked.value]["count"] == highestFrequency) {
+          highestFrequency = outcomesDict[checked.value]["count"];
+          chosen = [chosen, checked.value][Math.floor(Math.random() * 2)];
         }
       });
 
@@ -79,11 +93,14 @@ function calculate(numQuestions) {
     ) {
       document.querySelector(
         ".modal p"
-      ).innerHTML = `Your love language is ${chosen}!`;
+      ).innerHTML = `Your love language is ${outcomes[chosen]["text"]}!`;
 
       document.querySelector(
-        ".modal"
-      ).style.backgroundImage = "url('media/roses.gif')";
+        ".modal-content"
+      ).style.backgroundImage = `url(${outcomes[chosen]["img"]})`;
+      
+      document.querySelector(".modal").style.backgroundImage =
+        "url('media/roses.gif')";
     } else {
       document.querySelector(".modal p").innerHTML =
         "Please answer all questions first!";
@@ -98,11 +115,15 @@ function setOpacity() {
     .querySelectorAll(".choices > label > input[type='radio']")
     .forEach((input) => {
       input.addEventListener("change", (e) => {
-        e.target.parentNode.style.opacity = "1";
+        e.target.parentNode.classList.remove("unselected");
+        e.target.parentNode.classList.add("selected");
         e.target.parentNode.parentNode
           .querySelectorAll("input:not(:checked)")
           .forEach((uncheckedInput) => {
-            uncheckedInput.parentNode.style.opacity = "0.5";
+            if (uncheckedInput !== e.target) {
+              uncheckedInput.parentNode.classList.remove("selected");
+              uncheckedInput.parentNode.classList.add("unselected");
+            }
           });
 
         let nextQuestion = e.target.closest(".question").nextElementSibling;
