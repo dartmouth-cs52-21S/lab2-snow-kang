@@ -14,6 +14,7 @@ Inspired by Buzzfeed, LoveFeed assesses what users want. At the end of the quiz,
 - It's better to place the JavaScript tag right before the closing body tag as opposed to in the head tag because you want to prioritize rendering the page before executing any scripts. In a worst case scenario, your JavaScript running slowly could cause the user to be stuck on a blank page. 
 - Sidebar keeps track of answered questions; can also navigate on click
 - Did both JSON + committed to a powerpuff girl-esque theme   
+    - Parallax home page with a logo i made on canva lol 
     - Added scrolling hearts animation for each question
     - Rainbow gradient animation on hover and rainbow gradient static on selected for answer choices
     - Have a purple heart cursor for default and a pink heart cursor for pointer
@@ -24,3 +25,16 @@ Inspired by Buzzfeed, LoveFeed assesses what users want. At the end of the quiz,
 - Functional with all device sizes
 
 ## Screenshots
+- Even questions are formatted to allow text and/or images (desktop vs mobile):
+![evenQuestions](https://user-images.githubusercontent.com/38738497/114880647-3b627a00-9dd0-11eb-8f43-8470d3a02052.PNG)
+
+- Odd questions are formatted for text only (desktop vs mobile):
+![oddQuestions](https://user-images.githubusercontent.com/38738497/114880652-3bfb1080-9dd0-11eb-839a-e77ac575529d.PNG)
+
+- Animated rainbow gradient on hover, static rainbow background on selected. Sidebar navigation on desktop that keeps track of answered questions.
+![rainbow](https://user-images.githubusercontent.com/38738497/114880654-3bfb1080-9dd0-11eb-883a-865387ec652a.PNG)
+
+- Modal with typewriter effect, fade-in, background animation, and personalized link w/ cute animal pic
+![modal](https://user-images.githubusercontent.com/38738497/114881336-e7a46080-9dd0-11eb-8995-c87e8ff7f083.PNG)
+
+
