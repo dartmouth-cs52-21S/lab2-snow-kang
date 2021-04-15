@@ -9,6 +9,8 @@
 
   /* How to guarantee full view width w/o scrollbar width */
   --full-width: calc(100vw - (100vw - 100%));
+
+  --custom-pointer: url(https://ani.cursors-4u.net/symbols/sym-8/sym759.ani), url(https://ani.cursors-4u.net/symbols/sym-8/sym759.png), auto !important;
   --rainbow-gradient: linear-gradient(
     to right,
     #ff6663,
@@ -30,11 +32,13 @@ input[type="radio"] {
   display: none;
 }
 
+
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: rgb(255, 230, 234);
+  cursor: url(https://ani.cursors-4u.net/symbols/sym-8/sym758.ani), url(https://ani.cursors-4u.net/symbols/sym-8/sym758.png), auto !important;
 }
 
 h1 {
@@ -44,14 +48,40 @@ h1 {
   width: 100%;
 }
 
-label.card.selected {
-  opacity: 1;
-  border: dotted white 5px;
-  background-image: var(--rainbow-gradient);
+.sidebar {
+  position: fixed;
+  right: 2vw;
+  margin: 10% auto;
+  z-index: 1;
 }
 
-label.card.unselected {
-  opacity: 0.5;
+.sidebar-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: pink;
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  font-size: 2em;
+  margin: 1vh;
+  color: black;
+  border: double white 4px;
+}
+
+.answered {
+  background: linear-gradient(
+    #ff6663,
+    #feb144,
+    #ffde53,
+    #9ee09e,
+    #9ec1cf,
+    #cc99c9);
+}
+
+.sidebar-item:hover {
+  transform: scale(1.1);
+  cursor: var(--custom-pointer);
 }
 
 .parallax {
@@ -89,7 +119,7 @@ label.card.unselected {
   font-weight: bold;
   font-style: italic;
   font-family: "Cormorant Garamond", Serif;
-  font-size: 4rem;
+  font-size: 3.5rem;
 }
 
 /* Choices container that holds every label.card */
@@ -110,6 +140,16 @@ label.card {
   background-image: none;
 }
 
+label.card.selected {
+  opacity: 1;
+  border: dotted white 5px;
+  background-image: var(--rainbow-gradient);
+}
+
+label.card.unselected {
+  opacity: 0.5;
+}
+
 label.card p {
   width: 100%;
   font-size: 1.3em;
@@ -122,6 +162,7 @@ label.card img {
   max-height: 60%;
   width: auto;
   height: auto;
+  border-radius: 1rem;
 }
 
 /* Odd questions have label.cards with only text & are vertically oriented */
@@ -199,18 +240,22 @@ label.card:nth-child(5) {
   font-size: 1.3rem;
 }
 
-.rainbow-border {
-  background-image: var(--rainbow-gradient);
-  border: none;
-  animation: scroll-right 70s linear infinite;
-  transition: all 0.2s ease;
+.default-border {
+  background-color: pink;
   border-radius: 1rem;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.rainbow-border:after {
+.rainbow-border {
+  background-image: var(--rainbow-gradient);
+  animation: scroll-right 70s linear infinite;
+  transition: all 0.2s ease;
+}
+
+#calculate:after {
   border-radius: 1rem;
   display: flex;
   justify-content: center;
@@ -225,23 +270,24 @@ label.card:nth-child(5) {
 .modal {
   display: none;
   position: fixed;
+  z-index: 2;
   top: 0px;
   left: 0px;
   width: var(--full-width);
   height: 100vh;
   overflow: auto;
-  background-color: rgb(0, 0, 0); 
-  background-color: rgb(0, 0, 0, 0.4); 
+  background-color: rgb(0, 0, 0);
+  background-color: rgb(0, 0, 0, 0.4);
 }
 
 .modal-content {
   position: relative;
   border-radius: 1rem;
   background: rgb(255, 230, 234);
-  font-size: 1.5rem; 
-  margin: 5% auto; 
+  font-size: 1.5rem;
+  margin: 5% auto;
   padding: 20px;
-  width: 80%; 
+  width: 80%;
 }
 
 .modal-text {
@@ -286,25 +332,30 @@ label.card:nth-child(5) {
   border-radius: 1em;
 }
 
+.modal-text a:hover {
+  border-radius: 0;
+}
+
 .modal-text img {
   max-width: 40vw;
   max-height: 40vh;
   padding: 10px;
   object-fit: cover;
+  border-radius: 1rem;
 }
 
 .close {
   position: absolute;
   top: 2vh;
   right: 5vw;
-  color: gray;
+  color: red;
   font-size: 3rem;
   height: 1rem;
   font-weight: bold;
 }
 
 .close:hover {
-  cursor: pointer;
+  cursor: var(--custom-pointer);
 }
 
 @keyframes scroll-right {
@@ -322,13 +373,16 @@ label.card:nth-child(5) {
   }
 }
 
+/* How to ignore hover on touch devices
+https://stackoverflow.com/questions/23885255/how-to-remove-ignore-hover-css-style-on-touch-devices */
 @media (hover: hover) and (pointer: fine) {
   label.card:hover,
-  #calculate:hover, a:hover {
+  #calculate:hover,
+  a:hover {
     transform: scale(1.1);
+    cursor: var(--custom-pointer);
     background-image: var(--rainbow-gradient);
     animation: scroll-right 30s linear infinite;
-    cursor: pointer;
   }
 }
 
@@ -336,6 +390,10 @@ label.card:nth-child(5) {
 @media only screen and (max-width: 800px) {
   .parallax {
     background-size: 80vw;
+  }
+
+  .sidebar {
+    display: none;
   }
 
   .choices {
@@ -385,17 +443,17 @@ label.card:nth-child(5) {
     min-height: 2.5em;
     font-size: 2.5em;
   }
-  
+
   .modal-text h3 {
     font-size: 1em;
     text-align: center;
   }
-  
+
   .modal-text a {
     font-size: 1.5em;
     width: 80%;
   }
-  
+
   .modal-text img {
     max-width: 60vw;
     max-height: 60vh;

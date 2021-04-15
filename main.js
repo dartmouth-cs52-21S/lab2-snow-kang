@@ -20,15 +20,12 @@ fetch(url)
       let choices = shuffle(question.answers);
 
       choices.forEach((choice) => {
-        let imgHTML = "";
-        if (choice.image_url) {
-          imgHTML = `<img src=${choice.image_url}></img>`;
-        }
-
-        let txtHTML = "";
-        if (choice.text) {
-          txtHTML = `<p class="white-shadow-text">${choice.text}</p>`;
-        }
+        let imgHTML = choice.image_url
+          ? `<img src=${choice.image_url}></img>`
+          : "";
+        let txtHTML = choice.text
+          ? `<p class="white-shadow-text">${choice.text}</p>`
+          : "";
 
         choicesHTML += `<label class="card">
           <input type="radio" name="question${idx}" value=${choice.outcome}>
@@ -38,7 +35,7 @@ fetch(url)
       });
 
       let containerHTML = `<div class="question">
-        <p class="prompt white-shadow-text">${question.question_name}</p>
+        <p class="prompt white-shadow-text">${idx+1}. ${question.question_name}</p>
         <div class="choices">
           ${choicesHTML}
         </div>
@@ -48,9 +45,12 @@ fetch(url)
         .querySelector(".container")
         .insertAdjacentHTML("beforeend", containerHTML);
     });
+
     setOpacity();
     numQuestions = document.querySelectorAll(".question").length;
-    calculate(numQuestions, json.outcomes);
+
+    createSidebar();
+    calculate(json.outcomes);
   });
 
 // When the user clicks x, close the modal
@@ -66,7 +66,7 @@ window.addEventListener("click", (e) => {
 });
 
 // Displays modal result after determining most frequent answer
-function calculate(numQuestions, outcomes) {
+function calculate(outcomes) {
   document.getElementById("calculate").addEventListener("click", () => {
     let outcomesDict = outcomes;
     for (let key in outcomesDict) {
@@ -111,6 +111,25 @@ function calculate(numQuestions, outcomes) {
   });
 }
 
+function createSidebar() {
+  let sidebarHTML = "";
+  for (let i = 1; i < numQuestions + 1; i++) {
+    sidebarHTML += `<div class="sidebar-item">${i}</div>`;
+  }
+  document
+    .querySelector("h1")
+    .insertAdjacentHTML(
+      "afterend",
+      `<div class="sidebar"> ${sidebarHTML} </div>`
+    );
+
+  document.querySelectorAll(".sidebar-item").forEach((item) => {
+    item.addEventListener("click", (e) => {
+      scrollToPlace(e.target.innerHTML);
+    });
+  });
+}
+
 // For each question, lower the opacity of every choice except the one selected
 function setOpacity() {
   document
@@ -118,7 +137,9 @@ function setOpacity() {
     .forEach((input) => {
       input.addEventListener("change", (e) => {
         // Record which question number was just answered
-        answered.add(parseInt(input.name.split("question")[1]));
+        let questionNumber = parseInt(input.name.split("question")[1]);
+        answered.add(questionNumber);
+        document.querySelector(`.sidebar-item:nth-child(${questionNumber+1})`).classList.add("answered");
 
         e.target.parentNode.classList.remove("unselected");
         e.target.parentNode.classList.add("selected");
@@ -129,20 +150,27 @@ function setOpacity() {
             uncheckedInput.parentNode.classList.add("unselected");
           });
 
+        // Animate calculate button when all questions have been answered
+        if (answered.size == numQuestions) {
+          document.getElementById("calculate").classList.add("rainbow-border");
+        }
         scrollToPlace();
       });
     });
 }
 
 // Scrolls user to the earliest question that must still be completed
-function scrollToPlace() {
-  for (let i = 0; i < numQuestions; i++) {
-    if (!answered.has(i)) {
-      nextQuestion = document.querySelector(
-        `.question:nth-child(${i + 1})`
-      );
-      break;
+function scrollToPlace(desiredLocation) {
+  let nextQuestion;
+  if (!desiredLocation) {
+    for (let i = 0; i < numQuestions; i++) {
+      if (!answered.has(i)) {
+        nextQuestion = document.querySelector(`.question:nth-child(${i + 1})`);
+        break;
+      }
     }
+  } else {
+    nextQuestion = document.querySelector(`.question:nth-child(${desiredLocation})`);
   }
   if (nextQuestion) {
     window.scrollTo(0, nextQuestion.offsetTop);
