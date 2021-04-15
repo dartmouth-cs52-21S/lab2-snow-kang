@@ -1,0 +1,177 @@
+{
+    "title_img": "media/logo.png",
+    "outcomes": {
+        "touch": {
+            "img": "media/touch.jpg",
+            "text": "physical touch",
+            "advice": "https://www.blinkist.com/magazine/posts/love-language-physical-touch",
+            "credit": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fmedium.com%2F%40pgstaehelin%2Fhugging-72d787e125ae&psig=AOvVaw1K11Peb-3XTGfeoXe5FS4K&ust=1618550187384000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOCE3rm__-8CFQAAAAAdAAAAABAI"
+        },
+        "words": {
+            "img": "media/words.jpg",
+            "text": "words of affirmation",
+            "advice": "https://verilymag.com/2015/08/five-love-languages-dr-gary-chapman-words-of-affirmation-marriage-preparation-romance-relationships",
+            "credit": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F348747564873305235%2F&psig=AOvVaw2pH50yXq1wN1MY0EG7BCQn&ust=1618549811436000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLDVl4e-_-8CFQAAAAAdAAAAABA4"
+        },
+        "gifts": {
+            "img": "media/gifts.jpg",
+            "text": "gifts",
+            "advice": "https://psiloveyou.xyz/got-a-partner-whose-love-language-is-gift-giving-here-are-5-truths-they-want-you-to-know-ea30806dcb46",
+            "credit": "https://www.google.com/url?sa=i&url=https%3A%2F%2Far.pinterest.com%2Fpin%2F343821752785189245%2F&psig=AOvVaw2kM2lnnz6FdG7uKIKkFdok&ust=1618549608895000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJj32Km9_-8CFQAAAAAdAAAAABAV"
+        },
+        "time": {
+            "img": "media/time.jpg",
+            "text": "quality time",
+            "advice": "https://www.verywellmind.com/quality-time-love-language-4783540",
+            "credit": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.secrettelaviv.com%2Ftickets%2Fwild-animals-miami-beach-party&psig=AOvVaw1RBjI4Epgn7z7-OhydzRHK&ust=1618549539457000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJi0hIe9_-8CFQAAAAAdAAAAABAD"
+        },
+        "service": {
+            "img": "media/service.jpg",
+            "text": "acts of service",
+            "advice": "https://www.bustle.com/p/7-tips-for-showing-you-care-if-your-partners-love-language-is-acts-of-service-8266666",
+            "credit": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fbestlifeonline.com%2Fanimal-friendships%2F&psig=AOvVaw23ZKfAEBxiwFow6lWU13zN&ust=1618549319528000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOCRlqG8_-8CFQAAAAAdAAAAABAJ"
+        }
+    },
+    "questions": [
+        {
+            "question_name": "I want a friend who...",
+            "answers": [
+                {
+                    "text": "Is thoughtful and remembers the things I like",
+                    "outcome": "gifts"
+                },
+                {
+                    "text": "Talks positively about me to others even when I'm not around",
+                    "outcome": "service"
+                },
+                {
+                    "text": "Is my biggest hype(wo)man",
+                    "outcome": "words"
+                },
+                {
+                    "text": "Will offer their shoulder to cry on when things are hard",
+                    "outcome": "touch"
+                },
+                {
+                    "text": "I will have the best memories with",
+                    "outcome": "time"
+                }
+            ]
+        },
+        {
+            "question_name": "I want a magical tech gadget that...",
+            "answers": [
+                {
+                    "text": "Showers me with motivational messages after every git commit",
+                    "outcome": "words",
+                    "image_url": "media/computer.jpg",
+                    "credit": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.walpaperlist.com%2F2020%2F01%2Fkawaii-pink-aesthetic-cute-wallpapers.html&psig=AOvVaw0Z_KUSlkeLb1QW0hwu3wnF&ust=1618540181741000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLC0vJea_-8CFQAAAAAdAAAAABBz"
+                },
+                {
+                    "text": "Grants me free lifetime subscriptions to every learning platform",
+                    "outcome": "gifts",
+                    "image_url": "media/subscription.png",
+                    "credit": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fmedium.com%2Fjavarevisited%2Fcodecademy-or-pluralsight-which-is-a-better-platform-to-learn-coding-skills-59251a080642&psig=AOvVaw0pY9zZEEukaACIvELeNPy-&ust=1618537131325000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMC59buP_-8CFQAAAAAdAAAAABAD"
+                },
+                {
+                    "text": "Cures any coding hand/back/neck aches",
+                    "outcome": "touch",
+                    "image_url": "media/stretch.jpg",
+                    "credit": "https://unsplash.com/photos/smaS_Uxg4L0"
+                },
+                {
+                    "text": "Does every project's refactoring/unit-testing for me",
+                    "outcome": "service",
+                    "image_url": "media/testing.png",
+                    "credit": "https://www.google.com/url?sa=i&url=https%3A%2F%2Ficonarchive.com%2Fshow%2Fflatastic-9-icons-by-custom-icon-design%2FUnit-completed-icon.html&psig=AOvVaw205FT1gP0aGovdz1Ry2uQf&ust=1618538941731000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLjEn86V_-8CFQAAAAAdAAAAABAD"
+                },
+                {
+                    "text": "Instantly transports me to my friend's house when we need to pull an all-nighter together",
+                    "outcome": "time",
+                    "image_url": "media/study.jpg",
+                    "credit": "https://unsplash.com/photos/omeaHbEFlN4"
+                }
+            ]
+        },
+        {
+            "question_name": "I want to achieve...",
+            "answers": [
+                {
+                    "text": "Fame and worldwide recognition",
+                    "outcome": "words"
+                },
+                {
+                    "text": "Fortune so I can buy myself and my loved ones everything we could ever want",
+                    "outcome": "gifts"
+                },
+                {
+                    "text": "Perfect health and fitness",
+                    "outcome": "touch"
+                },
+                {
+                    "text": "Making an impact on someone's life",
+                    "outcome": "service"
+                },
+                {
+                    "text": "Becoming the leading expert at what I do",
+                    "outcome": "time"
+                }
+            ]
+        },
+        {
+            "question_name": "This is a wordy quiz... I want a drink before I go on...",
+            "answers": [
+                {
+                    "outcome": "words",
+                    "image_url": "media/coffee.jpg",
+                    "credit": "https://unsplash.com/photos/EAay7Aj4jbc"
+                },
+                {
+                    "outcome": "gifts",
+                    "image_url": "media/budlight.png",
+                    "credit": "https://www.google.com/url?sa=i&url=http%3A%2F%2Fthorpedistributing.com%2Fbud-light%2Fstrike-gold-bud-light-chance-win-super-bowl-tickets-life%2F&psig=AOvVaw15tZdJ_MMYuc41xeBg5c3e&ust=1618538726054000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNiZz-WU_-8CFQAAAAAdAAAAABAN"
+                },
+                {
+                    "outcome": "touch",
+                    "image_url": "media/izze.jpg",
+                    "credit": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.com%2FSparkling-Juice-Flavor-Sunset-Variety%2Fdp%2FB07FNCXSTL&psig=AOvVaw2vz9Z4YHwY4Ry8xClhfrvC&ust=1618538593122000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIiSyKGU_-8CFQAAAAAdAAAAABAD"
+                },
+                {
+                    "outcome": "service",
+                    "image_url": "media/hotcocoa.jpg",
+                    "credit": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.halfbakedharvest.com%2Fcreamy-coconut-hot-chocolate%2F&psig=AOvVaw3eC3ER3EGQX9IDF-qghDUn&ust=1618538555036000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCICLmpGU_-8CFQAAAAAdAAAAABAD"
+                },
+                {
+                    "outcome": "time",
+                    "image_url": "media/wine.jpg",
+                    "credit": "https://unsplash.com/photos/6ciLddToTgM"
+                }
+            ]
+        },
+        {
+            "question_name": "I do NOT want a roommate who...",
+            "answers": [
+                {
+                    "text": "Lets issues pile up before unloading them all at once",
+                    "outcome": "words"
+                },
+                {
+                    "text": "Forgets all the biggest occasions",
+                    "outcome": "gifts"
+                },
+                {
+                    "text": "Hates hugs... name a bigger red flag",
+                    "outcome": "touch"
+                },
+                {
+                    "text": "Relies on me to do all the chores",
+                    "outcome": "service"
+                },
+                {
+                    "text": "Is never home and always comes home late",
+                    "outcome": "time"
+                }
+            ]
+        }
+    ]
+}
