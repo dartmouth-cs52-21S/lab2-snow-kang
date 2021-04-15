@@ -14,6 +14,7 @@ Inspired by Buzzfeed, LoveFeed assesses what users want. At the end of the quiz,
 - It's better to place the JavaScript tag right before the closing body tag as opposed to in the head tag because you want to prioritize rendering the page before executing any scripts. In a worst case scenario, your JavaScript running slowly could cause the user to be stuck on a blank page. 
 - Sidebar keeps track of answered questions; can also navigate on click
 - Did both JSON + committed to a powerpuff girl-esque theme   
+    - Shuffled the order of the answer choices  
     - Parallax home page with a logo i made on canva lol 
     - Added scrolling hearts animation for each question
     - Rainbow gradient animation on hover and rainbow gradient static on selected for answer choices
